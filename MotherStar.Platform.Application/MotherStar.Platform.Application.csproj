@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Entitlements\DomainEventHandling\" />
+    <Folder Include="Entitlements\CommandHandling\" />
+    <Folder Include="Entitlements\DistributedEventHandling\" />
+    <Folder Include="Entitlements\QueryHandling\" />
+    <Folder Include="Security\CommandHandling\" />
+    <Folder Include="Security\DistributedEventHandling\" />
+    <Folder Include="Security\DomainEventHandling\" />
+    <Folder Include="Security\QueryHandling\" />
+    <Folder Include="SEO\CommandHandling\" />
+    <Folder Include="SEO\DistributedEventHandling\" />
+    <Folder Include="SEO\DomainEventHandling\" />
+    <Folder Include="SEO\QueryHandling\" />
+  </ItemGroup>
+
+</Project>
