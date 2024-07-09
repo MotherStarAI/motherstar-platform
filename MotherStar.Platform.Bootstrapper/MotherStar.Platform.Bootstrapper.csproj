@@ -1,15 +1,41 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entitlements\" />
-    <Folder Include="Security\" />
-    <Folder Include="SEO\" />
+	<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Hangfire.PostgreSql" Version="1.20.8" />
+    <PackageReference Include="IdentityModel.OidcClient" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+    <PackageReference Include="RCommon.FluentValidation" Version="2.0.0.883" />
+    <PackageReference Include="RCommon.MediatR" Version="2.0.0.883" />
+    <PackageReference Include="Serilog" Version="4.0.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.3.0" />
+    <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
+    <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
+    <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MotherStar.Platform.Application.Contracts\MotherStar.Platform.Application.Contracts.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Application\MotherStar.Platform.Application.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Data\MotherStar.Platform.Data.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Domain\MotherStar.Platform.Domain.csproj" />
   </ItemGroup>
 
 </Project>

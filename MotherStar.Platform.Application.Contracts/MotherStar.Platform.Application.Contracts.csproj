@@ -1,15 +1,19 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entitlements\" />
-    <Folder Include="Security\" />
-    <Folder Include="SEO\" />
+    <PackageReference Include="Google.Apis.PagespeedInsights.v5" Version="1.68.0.3416" />
+    <PackageReference Include="RCommon.ApplicationServices" Version="2.0.0.883" />
+    <PackageReference Include="RCommon.Mediator" Version="2.0.0.883" />
+    <PackageReference Include="RCommon.Models" Version="2.0.0.883" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MotherStar.Platform.Domain\MotherStar.Platform.Domain.csproj" />
   </ItemGroup>
 
 </Project>

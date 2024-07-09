@@ -1,0 +1,57 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "LighthouseContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "MotherStar.Platform.Domain.SEO.Lighthouse.Models",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 2,
+   "Tables": [
+      {
+         "Name": "[dbo].[LighthouseCustomers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PageAuditItems]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PageAuditRequests]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PageAudits]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Statuses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[StatusTypes]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "LVAP-YN8IFF5CGV.Lighthouse",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

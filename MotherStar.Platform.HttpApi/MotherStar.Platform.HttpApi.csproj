@@ -1,20 +1,34 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <UserSecretsId>aspnet-LeadVenture.SharedServices.Lighthouse.HttpApi-0ADB1ECC-77DD-4F2B-9236-60002770FDE2</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Elastic.Apm.NetCoreAll" Version="1.27.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.6.0" />
+    <PackageReference Include="RCommon.Web" Version="2.0.0.883" />
+    <PackageReference Include="Serilog" Version="4.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Entitlements\" />
-    <Folder Include="Controllers\SEO\" />
-    <Folder Include="Controllers\Security\" />
+    <ProjectReference Include="..\MotherStar.Platform.Application.Contracts\MotherStar.Platform.Application.Contracts.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Application\MotherStar.Platform.Application.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Bootstrapper\MotherStar.Platform.Bootstrapper.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Domain\MotherStar.Platform.Domain.csproj" />
   </ItemGroup>
 
 </Project>
