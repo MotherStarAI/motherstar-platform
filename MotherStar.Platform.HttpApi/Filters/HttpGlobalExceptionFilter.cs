@@ -51,7 +51,7 @@ namespace MotherStar.Platform.HttpApi.Filters
 
                 var json = new JsonErrorResponse();
 
-                if (env.IsDevelopment() || env.IsEnvironment("QA-Feature") || env.IsEnvironment("QA-QRT"))
+                if (env.IsDevelopment() || env.IsStaging())
                 {
                     json.Messages = new[] { "An error occured while processing this request.", context.Exception.Message };
                     json.DeveloperMessage ??= context.Exception.StackTrace;

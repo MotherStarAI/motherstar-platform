@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using MotherStar.Platform.HttpApi.Services;
+using MotherStar.Platform.Application.Security;
 using System.Linq;
 using System.Threading.Tasks;
 

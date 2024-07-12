@@ -20,7 +20,7 @@ namespace MotherStar.Platform.HttpApi.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddLighthouseHttpApi(this IServiceCollection services, IConfiguration configuration)
+        public static void AddSeoHttpApi(this IServiceCollection services, IConfiguration configuration)
         {
             //Add API Key Authentication
             services.AddAuthentication(ApiKeyDefaults.ApiKeyAuthSchemeName)
@@ -31,10 +31,10 @@ namespace MotherStar.Platform.HttpApi.Extensions
             services.AddSingleton<IApiKeyAuthenticationService, ApiKeyAuthenticationService>();
             services.AddCors(options =>
             {
-                options.AddPolicy(LighthouseHttpApiDefaults.CorsPolicyDefault,
+                options.AddPolicy(SeoHttpApiDefaults.CorsPolicyDefault,
                      builder =>
                      {
-                         builder.WithOrigins(configuration.GetSection(LighthouseHttpApiDefaults.ValidRequestOriginsConfigNameDefault).Get<string[]>()) // Depending on API gateway, we may be able to lock down origin to that IP. Allowing all for now.
+                         builder.WithOrigins(configuration.GetSection(SeoHttpApiDefaults.ValidRequestOriginsConfigNameDefault).Get<string[]>()) // Depending on API gateway, we may be able to lock down origin to that IP. Allowing all for now.
                          .AllowAnyHeader()
                          .AllowAnyMethod()
                         .AllowCredentials();

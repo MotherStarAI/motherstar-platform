@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 using MediatR;
 using RCommon.Persistence.Crud;
 using MotherStar.Platform.Domain;
-using MotherStar.Platform.Application.Extensions;
 using MotherStar.Platform.Application.SEO.Lighthouse.Jobs;
 using MotherStar.Platform.Application.SEO.Lighthouse.Services;
 using MotherStar.Platform.Application.Contracts.SEO.Lighthouse;
 using MotherStar.Platform.Application.Contracts.SEO.Lighthouse.Commands;
 using MotherStar.Platform.Domain.SEO.Lighthouse.Models;
+using MotherStar.Platform.Application.SEO.Extensions;
 
 namespace MotherStar.Platform.Application.SEO.Lighthouse.CommandHandling
 {

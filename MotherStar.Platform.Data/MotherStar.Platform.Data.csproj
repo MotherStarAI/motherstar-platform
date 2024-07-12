@@ -21,7 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="Entitlements\" />
+    <Folder Include="Monitoring\" />
+    <Folder Include="Security\Migrations\" />
+    <Folder Include="SocialMedia\" />
+    <Folder Include="SEO\Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

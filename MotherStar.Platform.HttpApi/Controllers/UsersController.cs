@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using MotherStar.Platform.HttpApi.Helpers;
-using MotherStar.Platform.HttpApi.Models.Users;
-using MotherStar.Platform.HttpApi.Services;
+using MotherStar.Platform.Application.Contracts.Security;
+using MotherStar.Platform.Application.Security;
 
 namespace MotherStar.Platform.HttpApi.Controllers
 {
@@ -15,16 +14,13 @@ namespace MotherStar.Platform.HttpApi.Controllers
     {
         private IUserService _userService;
         private IMapper _mapper;
-        private readonly AppSettings _appSettings;
 
         public UsersController(
             IUserService userService,
-            IMapper mapper,
-            IOptions<AppSettings> appSettings)
+            IMapper mapper)
         {
             _userService = userService;
             _mapper = mapper;
-            _appSettings = appSettings.Value;
         }
 
         [AllowAnonymous]

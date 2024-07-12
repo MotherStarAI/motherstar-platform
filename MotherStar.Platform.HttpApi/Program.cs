@@ -25,8 +25,9 @@ using Hangfire.PostgreSql;
 using Hangfire;
 using MotherStar.Platform.HttpApi.Extensions;
 using MotherStar.Platform.Bootstrapper;
-using MotherStar.Platform.Application.Extensions;
 using MotherStar.Platform.Bootstrapper.SEO.Extensions;
+using MotherStar.Platform.Application.SEO.Extensions;
+using MotherStar.Platform.Application.Security.Extensions;
 
 
 try
@@ -46,14 +47,18 @@ try
     // Configure RCommon for most infrastructure services including persistence, event handling, and mediator request pipeline
     builder.AddRCommonServices();
 
-    // Add Lighthouse Application services. CAN be reused for unit testing
-    builder.Services.AddLighthouseApplicationServices();
+    // *********Security***************
+    builder.Services.AddSecurityApplicationServices();
 
-    // Add Lighthouse Background jobs. CANNOT be reused for unit testing
-    builder.Services.AddLighthouseBackgroundJobs(configuration);
+    // **********SEO*******************
+    // Add SEO Application services. CAN be reused for unit testing
+    builder.Services.AddSeoApplicationServices();
 
-    // Add Lighthouse HttpApi specific services. CANNOT be reused for unit testing.
-    builder.Services.AddLighthouseHttpApi(configuration);
+    // Add SEO Background jobs. CANNOT be reused for unit testing
+    builder.Services.AddSeoBackgroundJobs(configuration);
+
+    // Add SEO HttpApi specific services. CANNOT be reused for unit testing.
+    builder.Services.AddSeoHttpApi(configuration);
 
     // Configure Logger
     builder.Services.AddLogging();
@@ -65,7 +70,7 @@ try
     var app = builder.Build();
 
     Log.Information("Starting up");
-    app.UseLighthouse(configuration, environment);
+    app.UseMotherStarApp(configuration, environment);
     app.UseSerilogRequestLogging();
 
     //Start EF Migrations at the end before we run the application

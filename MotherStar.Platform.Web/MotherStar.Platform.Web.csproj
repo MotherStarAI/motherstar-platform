@@ -8,13 +8,14 @@
 
 	<ItemGroup>
 				    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
-    		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all" 
-		/>
+    		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all" />
   	</ItemGroup>
 
 
   <ItemGroup>
+    <Folder Include="Components\" />
     <Folder Include="Pages\Entitlements\" />
+    <Folder Include="Pages\SocialMedia\" />
     <Folder Include="Pages\Security\" />
     <Folder Include="Pages\SEO\" />
   </ItemGroup>

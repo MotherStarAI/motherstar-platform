@@ -17,7 +17,7 @@ namespace MotherStar.Platform.HttpApi.Extensions
     internal static class ApplicationBuilderExtensions
     {
 
-        public static IApplicationBuilder UseLighthouse(this IApplicationBuilder app, IConfiguration configuration, IWebHostEnvironment env)
+        public static IApplicationBuilder UseMotherStarApp(this IApplicationBuilder app, IConfiguration configuration, IWebHostEnvironment env)
         {
             if (env.IsDevelopment() || env.IsStaging())
             {
@@ -32,7 +32,7 @@ namespace MotherStar.Platform.HttpApi.Extensions
                     foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
                     {
                         o.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
-                            $"Lighthouse Api - {description.GroupName.ToUpper()}");
+                            $"MotherStar Api - {description.GroupName.ToUpper()}");
                     }
                 });
             }

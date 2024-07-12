@@ -11,20 +11,29 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="FluentValidation" Version="11.9.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.1" />
     <PackageReference Include="Google.Apis.PagespeedInsights.v5" Version="1.68.0.3416" />
     <PackageReference Include="Hangfire" Version="1.8.12" />
     <PackageReference Include="Hangfire.PostgreSql" Version="1.20.8" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.6.3" />
     <PackageReference Include="RCommon.ApplicationServices" Version="2.0.0.883" />
     <PackageReference Include="RCommon.Mediator" Version="2.0.0.883" />
     <PackageReference Include="RCommon.Persistence" Version="2.0.0.883" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MotherStar.Platform.Application.Contracts\MotherStar.Platform.Application.Contracts.csproj" />
     <ProjectReference Include="..\MotherStar.Platform.Domain\MotherStar.Platform.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entitlements\" />
+    <Folder Include="Monitoring\" />
+    <Folder Include="SocialMedia\" />
   </ItemGroup>
 
 </Project>

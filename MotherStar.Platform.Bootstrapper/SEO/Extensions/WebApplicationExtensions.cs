@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MotherStar.Platform.Data;
+using MotherStar.Platform.Data.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,10 @@ namespace MotherStar.Platform.Bootstrapper.SEO.Extensions
         public static void RunEntityFrameworkMigrations(this WebApplication app)
         {
             var scope = app.Services.CreateScope();
-            var context = scope.ServiceProvider.GetService<LighthouseDbContext>();
-            context.Database.Migrate();
+            var seoDbContext = scope.ServiceProvider.GetService<SeoDbContext>();
+            var securityDbContext = scope.ServiceProvider.GetService<SecurityDbContext>();
+            seoDbContext.Database.Migrate();
+            securityDbContext.Database.Migrate();
         }
     }
 }

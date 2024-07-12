@@ -15,8 +15,8 @@ using MotherStar.Platform.Application.Contracts.SEO.Lighthouse.Commands;
 namespace MotherStar.Platform.HttpApi.Controllers.SEO.Lighthouse
 {
     [ApiVersion("1.0")]
-    [EnableCors(LighthouseHttpApiDefaults.CorsPolicyDefault)]
-    [Authorize(AuthenticationSchemes = LighthouseHttpApiDefaults.AuthenticationSchemesAllValid)]
+    [EnableCors(SeoHttpApiDefaults.CorsPolicyDefault)]
+    [Authorize(AuthenticationSchemes = SeoHttpApiDefaults.AuthenticationSchemesAllValid)]
     [ApiController]
     [Route("[controller]")]
     public class ProfilesController : ControllerBase

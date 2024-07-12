@@ -20,7 +20,6 @@ using RCommon.FluentValidation;
 using MediatR;
 using RCommon.ApplicationServices.ExecutionResults;
 using MotherStar.Platform.Domain;
-using MotherStar.Platform.Application;
 using MotherStar.Platform.Application.SEO.Lighthouse.CommandHandling;
 using MotherStar.Platform.Application.SEO.Lighthouse.DomainEventHandling;
 using MotherStar.Platform.Application.SEO.Lighthouse.QueryHandling;
@@ -29,6 +28,7 @@ using MotherStar.Platform.Application.Contracts.SEO.Lighthouse.Queries;
 using MotherStar.Platform.Application.Contracts.SEO.Lighthouse.Commands;
 using MotherStar.Platform.Domain.SEO.Lighthouse.Events;
 using MotherStar.Platform.Data;
+using MotherStar.Platform.Application.SEO;
 
 namespace MotherStar.Platform.Bootstrapper.SEO.Extensions
 {
@@ -47,7 +47,7 @@ namespace MotherStar.Platform.Bootstrapper.SEO.Extensions
                .WithPersistence<EFCorePerisistenceBuilder, DefaultUnitOfWorkBuilder>(objectAccessActions: ef => // Repository/ORM configuration. We could easily swap out to NHibernate without impact to domain service up through the stack
                {
                    // Add all the DbContexts here
-                   ef.AddDbContext<LighthouseDbContext>(DataStoreNamesConst.LighthouseDb, options =>
+                   ef.AddDbContext<SeoDbContext>(DataStoreNamesConst.LighthouseDb, options =>
                    {
                        options.UseNpgsql(configuration.GetConnectionString(DataStoreNamesConst.LighthouseDb));
                    });
@@ -96,7 +96,7 @@ namespace MotherStar.Platform.Bootstrapper.SEO.Extensions
                })
                .WithValidation<FluentValidationBuilder>(validation =>
                {
-                   validation.AddValidatorsFromAssemblyContaining(typeof(ApplicationLayerMappingProfile));
+                   validation.AddValidatorsFromAssemblyContaining(typeof(SeoAutoMapperProfile));
                    validation.UseWithCqrs(validation =>
                    {
                        validation.ValidateCommands = true;

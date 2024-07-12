@@ -19,4 +19,10 @@
     <PackageReference Include="RCommon.Entities" Version="2.0.0.883" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Entitlements\" />
+    <Folder Include="Monitoring\" />
+    <Folder Include="SocialMedia\" />
+  </ItemGroup>
+
 </Project>
