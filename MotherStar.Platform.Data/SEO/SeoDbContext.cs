@@ -60,7 +60,7 @@ namespace MotherStar.Platform.Data
             if (!optionsBuilder.IsConfigured && _configuration != null)
 
             {
-                var connectionString = _configuration.GetConnectionString(DataStoreNamesConst.LighthouseDb);
+                var connectionString = _configuration.GetConnectionString(DataStoreNamesConst.SeoDb);
                 var logger = _loggerFactory.CreateLogger(nameof(SeoDbContext));
                 logger.LogDebug("Connection string: {0}", connectionString);
                 optionsBuilder.UseNpgsql(connectionString);

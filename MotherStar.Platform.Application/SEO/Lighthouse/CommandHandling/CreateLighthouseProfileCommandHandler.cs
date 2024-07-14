@@ -45,15 +45,15 @@ namespace MotherStar.Platform.Application.SEO.Lighthouse.CommandHandling
             IGraphRepository<PageAuditRequest> pageAuditRequestRepository, IConfiguration configuration)
         {
             _profileRepository = profileRepository;
-            _profileRepository.DataStoreName = DataStoreNamesConst.LighthouseDb;
+            _profileRepository.DataStoreName = DataStoreNamesConst.SeoDb;
             _clock = clock;
             _guidGenerator = guidGenerator;
             _mapper = mapper;
             _lighthouseAppService = lighthouseAppService;
             _pageAuditRequestRepository = pageAuditRequestRepository;
-            _pageAuditRequestRepository.DataStoreName = DataStoreNamesConst.LighthouseDb;
+            _pageAuditRequestRepository.DataStoreName = DataStoreNamesConst.SeoDb;
             _pageAuditRepository = pageAuditRepository;
-            _pageAuditRepository.DataStoreName = DataStoreNamesConst.LighthouseDb;
+            _pageAuditRepository.DataStoreName = DataStoreNamesConst.SeoDb;
             _systemTime = systemTime;
             _configuration = configuration;
         }

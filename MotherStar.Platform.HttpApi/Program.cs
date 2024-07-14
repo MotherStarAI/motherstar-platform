@@ -28,6 +28,8 @@ using MotherStar.Platform.Bootstrapper;
 using MotherStar.Platform.Bootstrapper.SEO.Extensions;
 using MotherStar.Platform.Application.SEO.Extensions;
 using MotherStar.Platform.Application.Security.Extensions;
+using MotherStar.Platform.Bootstrapper.Security.Extensions;
+using Microsoft.AspNetCore.Identity;
 
 
 try
@@ -48,6 +50,8 @@ try
     builder.AddRCommonServices();
 
     // *********Security***************
+    // Establish cookie authentication
+    builder.Services.AddIdentityServices(configuration);
     builder.Services.AddSecurityApplicationServices();
 
     // **********SEO*******************
@@ -58,7 +62,7 @@ try
     builder.Services.AddSeoBackgroundJobs(configuration);
 
     // Add SEO HttpApi specific services. CANNOT be reused for unit testing.
-    builder.Services.AddSeoHttpApi(configuration);
+    builder.Services.AddBaseHttpApi(configuration);
 
     // Configure Logger
     builder.Services.AddLogging();
@@ -70,11 +74,18 @@ try
     var app = builder.Build();
 
     Log.Information("Starting up");
+
+    // Base Application
     app.UseMotherStarApp(configuration, environment);
+
+    // Security/Identity App
+    app.UseSecurityApp();
+    
     app.UseSerilogRequestLogging();
 
     //Start EF Migrations at the end before we run the application
-    app.RunEntityFrameworkMigrations();
+    await app.RunSecurityMigrations();
+    await app.RunSeoMigrations();
 
     app.Run();
 }

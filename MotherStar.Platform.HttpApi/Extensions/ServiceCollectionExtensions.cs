@@ -15,26 +15,42 @@ using MotherStar.Platform.HttpApi.Authentication;
 using MotherStar.Platform.HttpApi.Filters;
 using MotherStar.Platform.HttpApi;
 using MotherStar.Platform.HttpApi.Swagger;
+using Microsoft.AspNetCore.Identity;
 
 namespace MotherStar.Platform.HttpApi.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddSeoHttpApi(this IServiceCollection services, IConfiguration configuration)
+        public static void AddBaseHttpApi(this IServiceCollection services, IConfiguration configuration)
         {
             //Add API Key Authentication
             services.AddAuthentication(ApiKeyDefaults.ApiKeyAuthSchemeName)
                 .AddScheme<ApiKeyAuthOptions, ApiKeyAuthHandler>(ApiKeyDefaults.ApiKeyAuthSchemeName, null);
 
+            services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
+
+            // Configure app cookie
+            //
+            // The default values, which are appropriate for hosting the Backend and
+            // BlazorWasmAuth apps on the same domain, are Lax and SameAsRequest. 
+            // For more information on these settings, see:
+            // https://learn.microsoft.com/aspnet/core/blazor/security/webassembly/standalone-with-identity#cross-domain-hosting-same-site-configuration
+            /*
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+            });
+            */
 
             // Add the API Key Authentication service
             services.AddSingleton<IApiKeyAuthenticationService, ApiKeyAuthenticationService>();
             services.AddCors(options =>
             {
-                options.AddPolicy(SeoHttpApiDefaults.CorsPolicyDefault,
+                options.AddPolicy(HttpApiDefaults.CorsPolicyDefault,
                      builder =>
                      {
-                         builder.WithOrigins(configuration.GetSection(SeoHttpApiDefaults.ValidRequestOriginsConfigNameDefault).Get<string[]>()) // Depending on API gateway, we may be able to lock down origin to that IP. Allowing all for now.
+                         builder.WithOrigins(configuration.GetSection(HttpApiDefaults.ValidRequestOriginsConfigNameDefault).Get<string[]>()) // Depending on API gateway, we may be able to lock down origin to that IP. Allowing all for now.
                          .AllowAnyHeader()
                          .AllowAnyMethod()
                         .AllowCredentials();

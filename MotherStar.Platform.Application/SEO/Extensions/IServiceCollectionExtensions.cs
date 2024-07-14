@@ -41,7 +41,7 @@ namespace MotherStar.Platform.Application.SEO.Extensions
 
         public static void AddSeoBackgroundJobs(this IServiceCollection services, IConfiguration configuration)
         {
-            JobStorage.Current = new PostgreSqlStorage(configuration.GetConnectionString(DataStoreNamesConst.LighthouseDb));
+            JobStorage.Current = new PostgreSqlStorage(configuration.GetConnectionString(DataStoreNamesConst.SeoDb));
 
             // Add Hangfire services.
             services.AddHangfire(config => config
@@ -49,7 +49,7 @@ namespace MotherStar.Platform.Application.SEO.Extensions
                     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
                     .UseSimpleAssemblyNameTypeSerializer()
                     .UseRecommendedSerializerSettings()
-                    .UsePostgreSqlStorage(configuration.GetConnectionString(DataStoreNamesConst.LighthouseDb), new PostgreSqlStorageOptions
+                    .UsePostgreSqlStorage(configuration.GetConnectionString(DataStoreNamesConst.SeoDb), new PostgreSqlStorageOptions
                     {
                         //CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
                         //SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),

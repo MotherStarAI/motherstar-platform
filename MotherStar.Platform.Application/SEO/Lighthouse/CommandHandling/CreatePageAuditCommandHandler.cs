@@ -33,7 +33,7 @@ namespace MotherStar.Platform.Application.SEO.Lighthouse.CommandHandling
             _systemTime = systemTime;
             _guidGenerator = guidGenerator;
             _pageAuditRepository = pageAuditRepository;
-            _pageAuditRepository.DataStoreName = DataStoreNamesConst.LighthouseDb;
+            _pageAuditRepository.DataStoreName = DataStoreNamesConst.SeoDb;
             _mapper = mapper;
         }
 

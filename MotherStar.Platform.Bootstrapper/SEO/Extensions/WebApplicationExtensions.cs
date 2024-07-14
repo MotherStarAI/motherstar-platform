@@ -14,13 +14,14 @@ namespace MotherStar.Platform.Bootstrapper.SEO.Extensions
     public static class WebApplicationExtensions
     {
 
-        public static void RunEntityFrameworkMigrations(this WebApplication app)
+        public static async Task RunSeoMigrations(this WebApplication app)
         {
             var scope = app.Services.CreateScope();
             var seoDbContext = scope.ServiceProvider.GetService<SeoDbContext>();
             var securityDbContext = scope.ServiceProvider.GetService<SecurityDbContext>();
             seoDbContext.Database.Migrate();
             securityDbContext.Database.Migrate();
+            await Task.CompletedTask;
         }
     }
 }

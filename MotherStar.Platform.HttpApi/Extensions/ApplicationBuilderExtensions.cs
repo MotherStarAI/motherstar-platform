@@ -40,7 +40,7 @@ namespace MotherStar.Platform.HttpApi.Extensions
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors("CorsPolicy");
+            app.UseCors(HttpApiDefaults.CorsPolicyDefault);
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();

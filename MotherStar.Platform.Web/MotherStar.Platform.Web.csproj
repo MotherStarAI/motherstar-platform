@@ -6,21 +6,32 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Pages\Security\**" />
+    <Content Remove="Pages\Security\**" />
+    <EmbeddedResource Remove="Pages\Security\**" />
+    <None Remove="Pages\Security\**" />
+  </ItemGroup>
+
 	<ItemGroup>
 				    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
     		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0 " />
+		<PackageReference Include="TabBlazor" Version="0.9.4-alpha" />
   	</ItemGroup>
 
 
   <ItemGroup>
-    <Folder Include="Components\" />
     <Folder Include="Pages\Entitlements\" />
     <Folder Include="Pages\SocialMedia\" />
-    <Folder Include="Pages\Security\" />
     <Folder Include="Pages\SEO\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Components\Identity\Login.razor" />
+    <None Include="Components\Identity\Logout.razor" />
+    <None Include="Components\Identity\Register.razor" />
     <None Include="Pages\Counter.razor" />
     <None Include="Pages\Home.razor" />
     <None Include="Pages\Weather.razor" />
@@ -28,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Shared\MainLayout.razor">
+    <Content Update="Components\Layout\MainLayout.razor">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
   </ItemGroup>

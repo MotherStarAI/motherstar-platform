@@ -8,6 +8,7 @@ namespace MotherStar.Platform.Domain
 {
     public static class DataStoreNamesConst
     {
-        public const string LighthouseDb = "LighthouseDb";
+        public const string SeoDb = "SeoDb";
+        public const string SecurityDb = "SecurityDb";
     }
 }

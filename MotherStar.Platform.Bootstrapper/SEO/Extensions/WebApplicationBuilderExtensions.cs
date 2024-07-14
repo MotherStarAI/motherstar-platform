@@ -47,13 +47,13 @@ namespace MotherStar.Platform.Bootstrapper.SEO.Extensions
                .WithPersistence<EFCorePerisistenceBuilder, DefaultUnitOfWorkBuilder>(objectAccessActions: ef => // Repository/ORM configuration. We could easily swap out to NHibernate without impact to domain service up through the stack
                {
                    // Add all the DbContexts here
-                   ef.AddDbContext<SeoDbContext>(DataStoreNamesConst.LighthouseDb, options =>
+                   ef.AddDbContext<SeoDbContext>(DataStoreNamesConst.SeoDb, options =>
                    {
-                       options.UseNpgsql(configuration.GetConnectionString(DataStoreNamesConst.LighthouseDb));
+                       options.UseNpgsql(configuration.GetConnectionString(DataStoreNamesConst.SeoDb));
                    });
                    ef.SetDefaultDataStore(dataStore =>
                    {
-                       dataStore.DefaultDataStoreName = DataStoreNamesConst.LighthouseDb;
+                       dataStore.DefaultDataStoreName = DataStoreNamesConst.SeoDb;
                    });
                }, unitOfWorkActions: unitOfWork =>
                {

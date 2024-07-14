@@ -17,6 +17,7 @@
     <PackageReference Include="Google.Apis.PagespeedInsights.v5" Version="1.68.0.3416" />
     <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="RCommon.Entities" Version="2.0.0.883" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>

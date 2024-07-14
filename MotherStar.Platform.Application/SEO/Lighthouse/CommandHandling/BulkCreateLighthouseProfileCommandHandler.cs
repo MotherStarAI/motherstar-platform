@@ -44,13 +44,13 @@ namespace MotherStar.Platform.Application.SEO.Lighthouse.CommandHandling
             IWriteOnlyRepository<PageAuditRequest> pageAuditRequestRepository, IConfiguration configuration)
         {
             _customerRepository = customerRepository;
-            _customerRepository.DataStoreName = DataStoreNamesConst.LighthouseDb;
+            _customerRepository.DataStoreName = DataStoreNamesConst.SeoDb;
             _clock = clock;
             _guidGenerator = guidGenerator;
             _mapper = mapper;
             _lighthouseAppService = lighthouseAppService;
             _pageAuditRequestRepository = pageAuditRequestRepository;
-            _pageAuditRequestRepository.DataStoreName = DataStoreNamesConst.LighthouseDb;
+            _pageAuditRequestRepository.DataStoreName = DataStoreNamesConst.SeoDb;
             _configuration = configuration;
         }
         public async Task<BulkLighthouseProfileResponse> HandleAsync(BulkCreateLighthouseProfileCommand request, CancellationToken cancellationToken)

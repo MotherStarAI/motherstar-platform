@@ -27,19 +27,19 @@ namespace MotherStar.Platform.Web.Services
 
     public class HttpService : IHttpService
     {
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         private NavigationManager _navigationManager;
         private ILocalStorageService _localStorageService;
         private IConfiguration _configuration;
 
         public HttpService(
-            HttpClient httpClient,
+            IHttpClientFactory httpClientFactory,
             NavigationManager navigationManager,
             ILocalStorageService localStorageService,
             IConfiguration configuration
         )
         {
-            _httpClient = httpClient;
+            _httpClient = httpClientFactory.CreateClient("Auth");
             _navigationManager = navigationManager;
             _localStorageService = localStorageService;
             _configuration = configuration;
@@ -48,48 +48,48 @@ namespace MotherStar.Platform.Web.Services
         public async Task<T> Get<T>(string uri)
         {
             var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            return await sendRequest<T>(request);
+            return await SendRequest<T>(request);
         }
 
         public async Task Post(string uri, object value)
         {
-            var request = createRequest(HttpMethod.Post, uri, value);
-            await sendRequest(request);
+            var request = CreateRequest(HttpMethod.Post, uri, value);
+            await SendRequest(request);
         }
 
         public async Task<T> Post<T>(string uri, object value)
         {
-            var request = createRequest(HttpMethod.Post, uri, value);
-            return await sendRequest<T>(request);
+            var request = CreateRequest(HttpMethod.Post, uri, value);
+            return await SendRequest<T>(request);
         }
 
         public async Task Put(string uri, object value)
         {
-            var request = createRequest(HttpMethod.Put, uri, value);
-            await sendRequest(request);
+            var request = CreateRequest(HttpMethod.Put, uri, value);
+            await SendRequest(request);
         }
 
         public async Task<T> Put<T>(string uri, object value)
         {
-            var request = createRequest(HttpMethod.Put, uri, value);
-            return await sendRequest<T>(request);
+            var request = CreateRequest(HttpMethod.Put, uri, value);
+            return await SendRequest<T>(request);
         }
 
         public async Task Delete(string uri)
         {
-            var request = createRequest(HttpMethod.Delete, uri);
-            await sendRequest(request);
+            var request = CreateRequest(HttpMethod.Delete, uri);
+            await SendRequest(request);
         }
 
         public async Task<T> Delete<T>(string uri)
         {
-            var request = createRequest(HttpMethod.Delete, uri);
-            return await sendRequest<T>(request);
+            var request = CreateRequest(HttpMethod.Delete, uri);
+            return await SendRequest<T>(request);
         }
 
         // helper methods
 
-        private HttpRequestMessage createRequest(HttpMethod method, string uri, object value = null)
+        private HttpRequestMessage CreateRequest(HttpMethod method, string uri, object value = null)
         {
             var request = new HttpRequestMessage(method, uri);
             if (value != null)
@@ -97,9 +97,8 @@ namespace MotherStar.Platform.Web.Services
             return request;
         }
 
-        private async Task sendRequest(HttpRequestMessage request)
+        private async Task SendRequest(HttpRequestMessage request)
         {
-            await addJwtHeader(request);
 
             // send request
             using var response = await _httpClient.SendAsync(request);
@@ -111,12 +110,11 @@ namespace MotherStar.Platform.Web.Services
                 return;
             }
 
-            await handleErrors(response);
+            await HandleErrors(response);
         }
 
-        private async Task<T> sendRequest<T>(HttpRequestMessage request)
+        private async Task<T> SendRequest<T>(HttpRequestMessage request)
         {
-            await addJwtHeader(request);
 
             // send request
             using var response = await _httpClient.SendAsync(request);
@@ -128,7 +126,7 @@ namespace MotherStar.Platform.Web.Services
                 return default;
             }
 
-            await handleErrors(response);
+            await HandleErrors(response);
 
             var options = new JsonSerializerOptions();
             options.PropertyNameCaseInsensitive = true;
@@ -136,16 +134,7 @@ namespace MotherStar.Platform.Web.Services
             return await response.Content.ReadFromJsonAsync<T>(options);
         }
 
-        private async Task addJwtHeader(HttpRequestMessage request)
-        {
-            // add jwt auth header if user is logged in and request is to the api url
-            var user = await _localStorageService.GetItem<User>("user");
-            var isApiUrl = !request.RequestUri.IsAbsoluteUri;
-            if (user != null && isApiUrl)
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", user.Token);
-        }
-
-        private async Task handleErrors(HttpResponseMessage response)
+        private async Task HandleErrors(HttpResponseMessage response)
         {
             // throw exception on error response
             if (!response.IsSuccessStatusCode)
