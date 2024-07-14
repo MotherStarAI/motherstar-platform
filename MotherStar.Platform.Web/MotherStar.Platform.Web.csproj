@@ -7,10 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Entitlements\**" />
     <Compile Remove="Pages\Security\**" />
+    <Compile Remove="Pages\SEO\**" />
+    <Content Remove="Pages\Entitlements\**" />
     <Content Remove="Pages\Security\**" />
+    <Content Remove="Pages\SEO\**" />
+    <EmbeddedResource Remove="Pages\Entitlements\**" />
     <EmbeddedResource Remove="Pages\Security\**" />
+    <EmbeddedResource Remove="Pages\SEO\**" />
+    <None Remove="Pages\Entitlements\**" />
     <None Remove="Pages\Security\**" />
+    <None Remove="Pages\SEO\**" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -21,20 +29,19 @@
 		<PackageReference Include="TabBlazor" Version="0.9.4-alpha" />
   	</ItemGroup>
 
-
   <ItemGroup>
-    <Folder Include="Pages\Entitlements\" />
-    <Folder Include="Pages\SocialMedia\" />
-    <Folder Include="Pages\SEO\" />
+    <None Include="Pages\Identity\Login.razor" />
+    <None Include="Pages\Identity\Logout.razor" />
+    <None Include="Pages\Identity\Register.razor" />
+    <None Include="Pages\Start.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Components\Identity\Login.razor" />
-    <None Include="Components\Identity\Logout.razor" />
-    <None Include="Components\Identity\Register.razor" />
-    <None Include="Pages\Counter.razor" />
-    <None Include="Pages\Home.razor" />
-    <None Include="Pages\Weather.razor" />
+    <ProjectReference Include="..\MotherStar.Platform.Web.Core\MotherStar.Platform.Web.Core.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Web.Entitlements\MotherStar.Platform.Web.Entitlements.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Web.Monitoring\MotherStar.Platform.Web.Monitoring.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Web.SEO\MotherStar.Platform.Web.SEO.csproj" />
+    <ProjectReference Include="..\MotherStar.Platform.Web.SocialMedia\MotherStar.Platform.Web.SocialMedia.csproj" />
   </ItemGroup>
 
   <ItemGroup>

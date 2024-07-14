@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotherStar.Platform.Web", "MotherStar.Platform.Web\MotherStar.Platform.Web.csproj", "{158E9ACA-01C5-4EB4-89F3-16905B35AF6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotherStar.Platform.Web", "MotherStar.Platform.Web\MotherStar.Platform.Web.csproj", "{158E9ACA-01C5-4EB4-89F3-16905B35AF6F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotherStar.Platform.HttpApi", "MotherStar.Platform.HttpApi\MotherStar.Platform.HttpApi.csproj", "{70CE5CB6-9745-4D5B-93F3-B46739957CB9}"
 EndProject
@@ -18,6 +18,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DAA5FD8C-4E08-4E33-8E84-E78112FF944A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotherStar.Platform.Bootstrapper", "MotherStar.Platform.Bootstrapper\MotherStar.Platform.Bootstrapper.csproj", "{8A5F4F55-8D12-47FE-A400-29BA6322067A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{C607B19B-FEBE-4FD6-9F70-D6D52803CE34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{12A2378C-CD09-4414-B7F7-4451796B9897}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotherStar.Platform.Web.SEO", "MotherStar.Platform.Web.SEO\MotherStar.Platform.Web.SEO.csproj", "{D96842BF-110E-4A76-9E79-0F570C5BBC13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotherStar.Platform.Web.Monitoring", "MotherStar.Platform.Web.Monitoring\MotherStar.Platform.Web.Monitoring.csproj", "{C3CDFF3A-8A78-4C43-B933-CD6383876AE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotherStar.Platform.Web.Entitlements", "MotherStar.Platform.Web.Entitlements\MotherStar.Platform.Web.Entitlements.csproj", "{695DE771-112F-4868-8C36-2C8F75A4BE05}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MotherStar.Platform.Web.SocialMedia", "MotherStar.Platform.Web.SocialMedia\MotherStar.Platform.Web.SocialMedia.csproj", "{20D7DAF3-A16C-4AFF-8583-68B210D084ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotherStar.Platform.Web.Core", "MotherStar.Platform.Web.Core\MotherStar.Platform.Web.Core.csproj", "{0D29573C-1F38-432D-9840-19AB5799FA1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,12 +67,44 @@ Global
 		{8A5F4F55-8D12-47FE-A400-29BA6322067A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A5F4F55-8D12-47FE-A400-29BA6322067A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A5F4F55-8D12-47FE-A400-29BA6322067A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96842BF-110E-4A76-9E79-0F570C5BBC13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96842BF-110E-4A76-9E79-0F570C5BBC13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96842BF-110E-4A76-9E79-0F570C5BBC13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96842BF-110E-4A76-9E79-0F570C5BBC13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3CDFF3A-8A78-4C43-B933-CD6383876AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3CDFF3A-8A78-4C43-B933-CD6383876AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3CDFF3A-8A78-4C43-B933-CD6383876AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3CDFF3A-8A78-4C43-B933-CD6383876AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{695DE771-112F-4868-8C36-2C8F75A4BE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{695DE771-112F-4868-8C36-2C8F75A4BE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{695DE771-112F-4868-8C36-2C8F75A4BE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{695DE771-112F-4868-8C36-2C8F75A4BE05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D7DAF3-A16C-4AFF-8583-68B210D084ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D7DAF3-A16C-4AFF-8583-68B210D084ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D7DAF3-A16C-4AFF-8583-68B210D084ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D7DAF3-A16C-4AFF-8583-68B210D084ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D29573C-1F38-432D-9840-19AB5799FA1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D29573C-1F38-432D-9840-19AB5799FA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D29573C-1F38-432D-9840-19AB5799FA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D29573C-1F38-432D-9840-19AB5799FA1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{158E9ACA-01C5-4EB4-89F3-16905B35AF6F} = {C607B19B-FEBE-4FD6-9F70-D6D52803CE34}
+		{70CE5CB6-9745-4D5B-93F3-B46739957CB9} = {12A2378C-CD09-4414-B7F7-4451796B9897}
+		{392A1D80-ED6B-4E6D-9F88-740AF46E1D9B} = {12A2378C-CD09-4414-B7F7-4451796B9897}
+		{1B5ADF30-D0D9-48B4-8358-FB37313B80C0} = {12A2378C-CD09-4414-B7F7-4451796B9897}
 		{3C341C9C-C05C-4006-8564-7BF60E4C2DDF} = {DAA5FD8C-4E08-4E33-8E84-E78112FF944A}
+		{9B7CDDC1-CF44-4B82-8006-96FB24295285} = {12A2378C-CD09-4414-B7F7-4451796B9897}
+		{DAA5FD8C-4E08-4E33-8E84-E78112FF944A} = {12A2378C-CD09-4414-B7F7-4451796B9897}
+		{8A5F4F55-8D12-47FE-A400-29BA6322067A} = {12A2378C-CD09-4414-B7F7-4451796B9897}
+		{D96842BF-110E-4A76-9E79-0F570C5BBC13} = {C607B19B-FEBE-4FD6-9F70-D6D52803CE34}
+		{C3CDFF3A-8A78-4C43-B933-CD6383876AE1} = {C607B19B-FEBE-4FD6-9F70-D6D52803CE34}
+		{695DE771-112F-4868-8C36-2C8F75A4BE05} = {C607B19B-FEBE-4FD6-9F70-D6D52803CE34}
+		{20D7DAF3-A16C-4AFF-8583-68B210D084ED} = {C607B19B-FEBE-4FD6-9F70-D6D52803CE34}
+		{0D29573C-1F38-432D-9840-19AB5799FA1A} = {C607B19B-FEBE-4FD6-9F70-D6D52803CE34}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B58841E0-006F-4C0B-9A38-8FE04EF39DAD}
