@@ -50,7 +50,7 @@ namespace MotherStar.Platform.HttpApi.Swagger
         {
             var info = new OpenApiInfo()
             {
-                Title = "Lighthouse API",
+                Title = "MotherStar API",
                 Version = description.ApiVersion.ToString()
             };
 

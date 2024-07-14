@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MotherStar.Platform.Web;
 using MotherStar.Platform.Web.Services.Security;
+using TabBlazor;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -31,5 +32,6 @@ builder.Services.AddHttpClient(
     opt => opt.BaseAddress = new Uri(builder.Configuration["BackendUrl"] ?? "https://localhost:7234"))
     .AddHttpMessageHandler<CookieHandler>();
 
+builder.Services.AddTabler();
 
 await builder.Build().RunAsync();
