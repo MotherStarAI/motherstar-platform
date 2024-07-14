@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MotherStar.Platform.Data.Migrations.SecurityDb
 {
     [DbContext(typeof(SecurityDbContext))]
-    [Migration("20240714160317_InitialCreate")]
+    [Migration("20240714171802_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

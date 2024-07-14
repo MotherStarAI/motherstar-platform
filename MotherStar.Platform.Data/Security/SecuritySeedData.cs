@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MotherStar.Platform.Domain.Security.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MotherStar.Platform.Domain.Security.Models;
 
 namespace MotherStar.Platform.Data.Security
 {

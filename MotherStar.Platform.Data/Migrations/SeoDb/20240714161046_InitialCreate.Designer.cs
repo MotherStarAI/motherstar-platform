@@ -136,7 +136,7 @@ namespace MotherStar.Platform.Data.Migrations
 
                     b.Property<Guid>("LighthouseProfileId")
                         .HasColumnType("uuid")
-                        .HasColumnName("LighthouseCustomerId");
+                        .HasColumnName("LighthouseProfileId");
 
                     b.Property<string>("PageUrl")
                         .IsRequired()
@@ -287,7 +287,7 @@ namespace MotherStar.Platform.Data.Migrations
                         .WithMany("PageAuditRequests")
                         .HasForeignKey("LighthouseProfileId")
                         .IsRequired()
-                        .HasConstraintName("FK_PageAuditRequests_LighthouseCustomers");
+                        .HasConstraintName("FK_PageAuditRequests_LighthouseProfiles");
 
                     b.Navigation("LighthouseProfile");
                 });

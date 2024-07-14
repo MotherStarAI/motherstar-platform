@@ -13,7 +13,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AppUsers",
+                name: "AspNetUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
@@ -34,11 +34,11 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppUsers", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppRoles",
+                name: "AspNetRoles",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
@@ -49,16 +49,16 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppRoles", x => x.Id);
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AppRoles_AppUsers_AppUserId",
+                        name: "FK_AspNetRoles_AspNetUsers_AppUserId",
                         column: x => x.AppUserId,
-                        principalTable: "AppUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppUserClaims",
+                name: "AspNetUserClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -69,17 +69,17 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppUserClaims", x => x.Id);
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AppUserClaims_AppUsers_UserId",
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AppUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppUserLogins",
+                name: "AspNetUserLogins",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(type: "text", nullable: false),
@@ -89,17 +89,17 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_AppUserLogins_AppUsers_UserId",
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AppUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppUserTokens",
+                name: "AspNetUserTokens",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "text", nullable: false),
@@ -109,17 +109,17 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_AppUserTokens_AppUsers_UserId",
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AppUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppRoleClaims",
+                name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -130,17 +130,17 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppRoleClaims", x => x.Id);
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AppRoleClaims_AppRoles_RoleId",
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "AppRoles",
+                        principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "AppUserRoles",
+                name: "AspNetUserRoles",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "text", nullable: false),
@@ -148,60 +148,60 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AppUserRoles", x => new { x.UserId, x.RoleId });
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
                     table.ForeignKey(
-                        name: "FK_AppUserRoles_AppRoles_RoleId",
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "AppRoles",
+                        principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AppUserRoles_AppUsers_UserId",
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "AppUsers",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AppRoleClaims_RoleId",
-                table: "AppRoleClaims",
+                name: "IX_AspNetRoleClaims_RoleId",
+                table: "AspNetRoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AppRoles_AppUserId",
-                table: "AppRoles",
+                name: "IX_AspNetRoles_AppUserId",
+                table: "AspNetRoles",
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                table: "AppRoles",
+                table: "AspNetRoles",
                 column: "NormalizedName",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_AppUserClaims_UserId",
-                table: "AppUserClaims",
+                name: "IX_AspNetUserClaims_UserId",
+                table: "AspNetUserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AppUserLogins_UserId",
-                table: "AppUserLogins",
+                name: "IX_AspNetUserLogins_UserId",
+                table: "AspNetUserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AppUserRoles_RoleId",
-                table: "AppUserRoles",
+                name: "IX_AspNetUserRoles_RoleId",
+                table: "AspNetUserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "AppUsers",
+                table: "AspNetUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "AppUsers",
+                table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
         }
@@ -210,25 +210,25 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AppRoleClaims");
+                name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
-                name: "AppUserClaims");
+                name: "AspNetUserClaims");
 
             migrationBuilder.DropTable(
-                name: "AppUserLogins");
+                name: "AspNetUserLogins");
 
             migrationBuilder.DropTable(
-                name: "AppUserRoles");
+                name: "AspNetUserRoles");
 
             migrationBuilder.DropTable(
-                name: "AppUserTokens");
+                name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "AppRoles");
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AppUsers");
+                name: "AspNetUsers");
         }
     }
 }

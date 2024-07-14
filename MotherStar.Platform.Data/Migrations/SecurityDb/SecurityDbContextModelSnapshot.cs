@@ -50,7 +50,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                         .IsUnique()
                         .HasDatabaseName("RoleNameIndex");
 
-                    b.ToTable("AppRoles", (string)null);
+                    b.ToTable("AspNetRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -75,7 +75,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AppRoleClaims", (string)null);
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -100,7 +100,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AppClaims", (string)null);
+                    b.ToTable("AspNetUserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -122,7 +122,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AppLogins", (string)null);
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -137,7 +137,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AppUserRoles", (string)null);
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -156,7 +156,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AppUserTokens", (string)null);
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("MotherStar.Platform.Domain.Security.Models.AppUser", b =>
@@ -220,7 +220,7 @@ namespace MotherStar.Platform.Data.Migrations.SecurityDb
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
-                    b.ToTable("AppUsers", (string)null);
+                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace MotherStar.Platform.Data.Security
 {
-    public class SecurityDbContext(DbContextOptions<SecurityDbContext> options) : IdentityDbContext<AppUser>(options)
+    public partial class SecurityDbContext(DbContextOptions<SecurityDbContext> options) : IdentityDbContext<AppUser>(options)
     {
+        
     }
 }

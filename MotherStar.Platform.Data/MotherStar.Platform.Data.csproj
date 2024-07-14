@@ -23,8 +23,8 @@
   <ItemGroup>
     <Folder Include="Entitlements\Configurations\" />
     <Folder Include="Migrations\EntitlementsDb\" />
+    <Folder Include="Migrations\SecurityDb\" />
     <Folder Include="Monitoring\" />
-    <Folder Include="Security\Configurations\" />
     <Folder Include="SocialMedia\" />
   </ItemGroup>
 
