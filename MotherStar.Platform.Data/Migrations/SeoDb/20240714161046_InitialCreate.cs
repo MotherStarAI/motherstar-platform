@@ -44,7 +44,7 @@ namespace MotherStar.Platform.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    LighthouseCustomerId = table.Column<Guid>(type: "uuid", nullable: false),
+                    LighthouseProfileId = table.Column<Guid>(type: "uuid", nullable: false),
                     PageUrl = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     StatusId = table.Column<Guid>(type: "uuid", nullable: false)
@@ -53,8 +53,8 @@ namespace MotherStar.Platform.Data.Migrations
                 {
                     table.PrimaryKey("PK_PageAuditRequests", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PageAuditRequests_LighthouseCustomers",
-                        column: x => x.LighthouseCustomerId,
+                        name: "FK_PageAuditRequests_LighthouseProfiles",
+                        column: x => x.LighthouseProfileId,
                         principalTable: "LighthouseProfiles",
                         principalColumn: "Id");
                 });
@@ -167,9 +167,9 @@ namespace MotherStar.Platform.Data.Migrations
                 column: "StatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PageAuditRequests_LighthouseCustomerId",
+                name: "IX_PageAuditRequests_LighthouseProfileId",
                 table: "PageAuditRequests",
-                column: "LighthouseCustomerId");
+                column: "LighthouseProfileId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PageAudits_PageAuditRequestId",

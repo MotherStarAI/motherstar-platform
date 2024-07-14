@@ -20,14 +20,14 @@ namespace MotherStar.Platform.Data.Configurations
                 .HasMaxLength(255);
 
             entity.Property(e => e.LighthouseProfileId)
-                .HasColumnName("LighthouseCustomerId")
+                .HasColumnName("LighthouseProfileId")
                 .IsRequired();
 
             entity.HasOne(d => d.LighthouseProfile)
                 .WithMany(p => p.PageAuditRequests)
                 .HasForeignKey(d => d.LighthouseProfileId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_PageAuditRequests_LighthouseCustomers");
+                .HasConstraintName("FK_PageAuditRequests_LighthouseProfiles");
 
             OnConfigurePartial(entity);
         }
