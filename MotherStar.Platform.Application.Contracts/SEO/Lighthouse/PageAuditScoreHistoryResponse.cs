@@ -15,7 +15,5 @@ namespace MotherStar.Platform.Application.Contracts.SEO.Lighthouse
 
         }
 
-        public double? Score { get; set; }
-
     }
 }

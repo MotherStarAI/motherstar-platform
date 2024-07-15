@@ -38,4 +38,10 @@
     <ProjectReference Include="..\MotherStar.Platform.Domain\MotherStar.Platform.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Entitlements\Extensions\" />
+    <Folder Include="Monitoring\Extensions\" />
+    <Folder Include="SocialMedia\Extensions\" />
+  </ItemGroup>
+
 </Project>

@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
-using MotherStar.Platform.Application.Contracts.Security;
 using MotherStar.Platform.Data.Security;
 using MotherStar.Platform.Data;
 using MotherStar.Platform.Domain.Security.Models;
@@ -72,13 +71,13 @@ namespace MotherStar.Platform.Bootstrapper.Security.Extensions
                 return Results.Unauthorized();
             }).RequireAuthorization();
 
-            app.MapPost("/data-processing-1", ([FromBody] FormDto model) =>
+            /*app.MapPost("/data-processing-1", ([FromBody] FormDto model) =>
                 Results.Text($"{model.Message.Length} characters"))
                     .RequireAuthorization();
 
             app.MapPost("/data-processing-2", ([FromBody] FormDto model) =>
                 Results.Text($"{model.Message.Length} characters"))
-                    .RequireAuthorization(policy => policy.RequireRole("Manager"));
+                    .RequireAuthorization(policy => policy.RequireRole("Manager"));*/
 
         }
     }

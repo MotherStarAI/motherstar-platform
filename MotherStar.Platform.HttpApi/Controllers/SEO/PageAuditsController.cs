@@ -15,7 +15,7 @@ namespace MotherStar.Platform.HttpApi.Controllers.SEO.Lighthouse
     [EnableCors(HttpApiDefaults.CorsPolicyDefault)]
     [Authorize(AuthenticationSchemes = HttpApiDefaults.AuthenticationSchemesAllValid)]
     [ApiController]
-    [Route("[controller]")]
+    [Route("seo/[controller]")]
     public class PageAuditsController : ControllerBase
     {
         private readonly IMediatorService _mediator;

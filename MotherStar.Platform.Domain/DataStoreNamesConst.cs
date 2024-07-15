@@ -10,5 +10,8 @@ namespace MotherStar.Platform.Domain
     {
         public const string SeoDb = "SeoDb";
         public const string SecurityDb = "SecurityDb";
+        public const string EntitlementsDb = "EntitlementsDb";
+        public const string MonitoringDb = "MonitoringDb";
+        public const string SocialMediaDb = "SocialMediaDb";
     }
 }
