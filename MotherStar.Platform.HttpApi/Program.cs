@@ -25,8 +25,6 @@ using Hangfire.PostgreSql;
 using Hangfire;
 using MotherStar.Platform.HttpApi.Extensions;
 using MotherStar.Platform.Bootstrapper;
-using MotherStar.Platform.Bootstrapper.SEO.Extensions;
-using MotherStar.Platform.Application.SEO.Extensions;
 using MotherStar.Platform.Application.Security.Extensions;
 using MotherStar.Platform.Bootstrapper.Security.Extensions;
 using Microsoft.AspNetCore.Identity;
@@ -47,19 +45,14 @@ try
     }
 
     // Configure RCommon for most infrastructure services including persistence, event handling, and mediator request pipeline
-    builder.AddRCommonServices();
+    //builder.AddRCommonServices();
 
     // *********Security***************
     // Establish cookie authentication
     builder.Services.AddIdentityServices(configuration);
     builder.Services.AddSecurityApplicationServices();
 
-    // **********SEO*******************
-    // Add SEO Application services. CAN be reused for unit testing
-    builder.Services.AddSeoApplicationServices();
 
-    // Add SEO Background jobs. CANNOT be reused for unit testing
-    builder.Services.AddSeoBackgroundJobs(configuration);
 
     // Add SEO HttpApi specific services. CANNOT be reused for unit testing.
     builder.Services.AddBaseHttpApi(configuration);
@@ -85,7 +78,7 @@ try
 
     //Start EF Migrations at the end before we run the application
     await app.RunSecurityMigrations();
-    await app.RunSeoMigrations();
+   // await app.RunSeoMigrations();
 
     app.Run();
 }

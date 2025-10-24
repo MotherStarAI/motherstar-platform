@@ -9,10 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="Entitlements\**" />
+    <Compile Remove="Migrations\EntitlementsDb\**" />
     <Compile Remove="SocialMedia\**" />
     <EmbeddedResource Remove="Entitlements\**" />
+    <EmbeddedResource Remove="Migrations\EntitlementsDb\**" />
     <EmbeddedResource Remove="SocialMedia\**" />
     <None Remove="Entitlements\**" />
+    <None Remove="Migrations\EntitlementsDb\**" />
     <None Remove="SocialMedia\**" />
   </ItemGroup>
 
@@ -30,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\EntitlementsDb\" />
     <Folder Include="Migrations\SecurityDb\" />
   </ItemGroup>
 

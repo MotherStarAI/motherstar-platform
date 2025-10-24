@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using RCommon.ApplicationServices.Validation;
-using MotherStar.Platform.Domain.SEO.Lighthouse.Exceptions;
 
 namespace MotherStar.Platform.HttpApi.Filters
 {
@@ -32,7 +31,7 @@ namespace MotherStar.Platform.HttpApi.Filters
                 context.Exception,
                 context.Exception.Message);
 
-            if (context.Exception.GetType() == typeof(ValidationException) || context.Exception.GetType() == typeof(LighthouseDomainException))
+            if (context.Exception.GetType() == typeof(ValidationException))// || context.Exception.GetType() == typeof(LighthouseDomainException))
             {
                 var problemDetails = new ValidationProblemDetails()
                 {
