@@ -1,15 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Apis.PagespeedInsights.v5" Version="1.68.0.3416" />
-    <PackageReference Include="RCommon.ApplicationServices" Version="2.0.0.883" />
-    <PackageReference Include="RCommon.Mediator" Version="2.0.0.883" />
-    <PackageReference Include="RCommon.Models" Version="2.0.0.883" />
+    <Compile Remove="Entitlements\**" />
+    <EmbeddedResource Remove="Entitlements\**" />
+    <None Remove="Entitlements\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.PagespeedInsights.v5" Version="1.68.0.3528" />
+    <PackageReference Include="RCommon.ApplicationServices" Version="2.1.10" />
+    <PackageReference Include="RCommon.Mediator" Version="2.1.10" />
+    <PackageReference Include="RCommon.Models" Version="2.1.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entitlements\" />
     <Folder Include="Monitoring\" />
   </ItemGroup>
 

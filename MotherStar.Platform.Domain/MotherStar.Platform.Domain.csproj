@@ -1,29 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Repositories\**" />
     <Compile Remove="Services\**" />
+    <Compile Remove="SocialMedia\**" />
     <EmbeddedResource Remove="Repositories\**" />
     <EmbeddedResource Remove="Services\**" />
+    <EmbeddedResource Remove="SocialMedia\**" />
     <None Remove="Repositories\**" />
     <None Remove="Services\**" />
+    <None Remove="SocialMedia\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Apis.PagespeedInsights.v5" Version="1.68.0.3416" />
-    <PackageReference Include="MediatR" Version="12.2.0" />
-    <PackageReference Include="RCommon.Entities" Version="2.0.0.883" />
-	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Google.Apis.PagespeedInsights.v5" Version="1.68.0.3528" />
+    <PackageReference Include="MediatR" Version="13.1.0" />
+    <PackageReference Include="RCommon.Entities" Version="2.1.10" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.10" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Entitlements\" />
     <Folder Include="Monitoring\" />
-    <Folder Include="SocialMedia\" />
   </ItemGroup>
 
 </Project>
